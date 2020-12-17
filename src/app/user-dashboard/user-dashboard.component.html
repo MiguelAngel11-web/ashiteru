@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<div class="d-flex" id="wrapper">
+
+
+    <div class="nav flex-column nav-pills vertical-nav" id="v-pills-tab " role="tablist" aria-orientation="vertical">
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">Start Bootstrap </div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action bg-light" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard</a>
+                <a class="list-group-item list-group-item-action bg-light" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Shortcuts</a>
+                <a class="list-group-item list-group-item-action bg-light" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Overview</a>
+                <a class="list-group-item list-group-item-action bg-light" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Events</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="page-content-wrapper">
+        <div class="tab-content container-fluid" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <table class="table table-hover favoritos">
+                    <thead>
+                        <tr class="table">
+                            <th scope="col" colspan="2">
+                                Mis Favoritos
+                                <i class="fas fa-heart"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-light" *ngFor="let f of items | async">
+                            <td>{{f.name[0].poster}}</td>
+                            <!--  <td><button type="button" class="btn btn-lg active boton" aria-pressed="true" (click)="BorrarFav(f.key)"><i class="far fa-trash-alt"></i></button></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <ng-container *ngFor="let f of items | async">
+                    <img [src]="f.name[0].poster | domseguro:'://':'://www3.'">
+                </ng-container>
+            </div>
+            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">Mensajes</div>
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">Configuración</div>
+        </div>
+    </div>
+
+
+
+</div>

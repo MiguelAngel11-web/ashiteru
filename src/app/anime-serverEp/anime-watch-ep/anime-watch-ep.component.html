@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col align-self-start">
+            <h4><strong>{{title}}</strong></h4>
+            <p>Episodio {{episode}}</p>
+        </div>
+
+    </div>
+    <ul class="pagination justify-content-center">
+        <div *ngFor="let s of returnEpisodes;index as i">
+
+            <li class="page-item"><button (click)="selectServer(returnEpisodes[i].code)" class="btn btn-info m-1" type="submit">{{s.title}}</button></li>
+        </div>
+    </ul>
+
+    <div class="container d-flex justify-content-center p-5">
+        <ng-container *ngIf="eligioServer">
+            <iframe [src]="videoUrl" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+        </ng-container>
+    </div>

@@ -1,0 +1,41 @@
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="header__logo">
+                    <a href="./index.html">
+                        <img class="img-fluid" src="../../assets/images/monstruo-redondo-gordo.png">
+                        <img src="img/logo.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="header__nav">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li class="active"><a [routerLink]="['\home']">Homepage</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="header__right">
+
+
+                    <input class="buscador" type="search" placeholder="Search" aria-label="Search" #buscarTexto (keyup.enter)="busquedaAnime(buscarTexto.value)"> <button type="button" (click)="busquedaAnime(buscarTexto.value)" class="btn btn-danger mr-1"><span class="icon_search"></span></button>
+
+                    <!-- <a href="#" class="search-switch">
+                        <span class="icon_search"></span></a> -->
+                    <a [routerLink]="['/login']" *ngIf="!isLogin"> Login <span class="icon_profile"></span></a>
+                    <a [routerLink]="['/dashUser']" *ngIf="isLogin">{{user.displayName}} <span class="icon_profile"></span></a>
+                    <a (click)="Salir()" *ngIf="isLogin"> Salir <span class="arrow_right"></span></a>
+
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+</header>
+<!-- Header End -->

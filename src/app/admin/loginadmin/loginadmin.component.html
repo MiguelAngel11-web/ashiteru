@@ -1,0 +1,43 @@
+<form [formGroup]="form" novalidate (ngSubmit)="OnSubmit()">
+    <fieldset>
+        <legend>Login Admin</legend>
+        <!-- Input email -->
+        <div class="form-group has-success">
+            <label for="Username">Username</label>
+            <input type="text" class="form-control" id="username" aria-describedby="emailHelp" formControlName="username" [class.is-invalid]="UsernameInvalid" [class.is-valid]="UsernameValid" placeholder="Enter Username" autofocus>
+            <small id="UsernameHelp" class="form-text text-muted">We'll never share your Username with anyone else.</small>
+            <!-- Si no están correctos los campos imprimios este mensaje -->
+            <div class="invalid-feedback" *ngIf="Username.invalid && (Username.dirty || Username.touched)">
+                <p *ngIf="Username.errors.required">
+                    Username es requerido
+                </p>
+                <!-- <p *ngIf="Username.errors.minlength">
+                    Username tiene que tener más de cinco carácteres
+                </p> -->
+            </div>
+            <!-- Acaba mensaje de error -->
+        </div>
+        <!-- Fin inpt email -->
+        <!-- Input password -->
+        <div class="form-group has-success">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" formControlName="pass" [class.is-valid]="PasswordValid" [class.is-invalid]="PasswordInvalid" placeholder="Password" aria-describedby="passwordHelpInline">
+            <!-- Footer del input -->
+            <small id="passwordHelpInline" class="text-muted">
+            Must be 8-20 characters long.
+          </small>
+            <!-- Si no están correctos los campos imprimios este mensaje -->
+            <div class="invalid-feedback" *ngIf="Password.invalid && (Password.dirty || Password.touched)">
+                <p *ngIf="Password.errors.required">
+                    Password es requerido
+                </p>
+                <p *ngIf="Password.errors.minlength">
+                    Password tiene que tener más de cinco carácteres
+                </p>
+            </div>
+            <!-- Acaba mensaje de error -->
+        </div>
+        <!-- Fin input password -->
+        <button type="submit" class="btn btn-primary">Entrar</button>
+    </fieldset>
+</form>

@@ -1,0 +1,12 @@
+<div class="card-columns m-5 animated fadeIn">
+    <div *ngFor='let a of this.animeEncontrado' class="card">
+        <img class="card-img-top img-thumbnail" [src]="a.poster | domseguro:'://':'://www3.'" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{a.title}}</h5>
+            <p class="card-text">
+                <a [routerLink]="['/anime',a.id,a.title]">Ver</a>
+            </p>
+
+        </div>
+    </div>
+</div>

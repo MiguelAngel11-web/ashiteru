@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "kamel-6e19d": {
+      "hosting": {
+        "ashiteru": [
+          "kamel-6e19d"
+        ]
+      }
+    }
+  }
+}

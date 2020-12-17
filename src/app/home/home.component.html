@@ -1,0 +1,97 @@
+<!-- Product Section Begin -->
+<app-navbar></app-navbar>
+<section class="product spad">
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="trending__product">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-8">
+                            <div class="section-title">
+                                <h4>Últimos episodios</h4>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row row-cols-3">
+                        <div *ngFor="let e of allLatestEpisodesAnime index as i;">
+
+                            <div class="col">
+                                <div class="product__item">
+                                    <div class="product__item__pic">
+                                        <!--     <img [src]="e.banner | domseguro:'://':'://www3.'"> -->
+                                        <a [routerLink]="['/ver',e.id]"><img [src]="e.poster | domseguro:'://':'://www3.'"> </a>
+                                        <div class="ep">Episodio {{e.episode}}</div>
+
+                                        <!--  <div class="comment"><i class="fa fa-comments"></i> 11</div>-->
+                                        <div class="view"><i class="fa fa-play"></i></div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <h5><a [routerLink]="['/ver',e.id]">{{e.title}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+            <!-- Top views -->
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="product__sidebar">
+                    <div class="product__sidebar__view">
+                        <div class="section-title">
+                            <h5>Animes En Emisión</h5>
+                        </div>
+
+                        <div class="filter__gallery">
+                            <div *ngFor="let n of allEmision">
+                                <div class="product__sidebar__view__item ">
+
+                                    <div class="view">{{n.type}}</div>
+                                    <div><i class="fa fa-play"></i>
+                                        <h5><a [routerLink]="['/anime',n.id,n.title]">{{n.title}}</a></h5>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product__sidebar__comment">
+                        <div class="section-title">
+                            <h5>Comming Soon</h5>
+                        </div>
+                        <div *ngFor="let c of allCommingSon;index as i">
+                            <div class="product__sidebar__comment__item">
+                                <div class="product__sidebar__comment__item__pic">
+                                    <img [src]="c.banner | domseguro:'://':'://www3.'">
+                                </div>
+                                <div class="product__sidebar__comment__item__text">
+                                    <ul>
+                                        <li>{{c.genres}}</li>
+                                    </ul>
+                                    <h5><a href="#">{{c.title}}</a></h5>
+                                    <span><i class="fa fa-star"></i> {{c.rating}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- Product Section End -->
+<script>
+    $('.carousel').carousel({
+        interval: 2000
+    })
+</script>
