@@ -22,7 +22,6 @@ export class AnimeDetailsComponent implements OnInit {
     this.api.getOneAnime(params['id'],params['title']).subscribe(
       (data:any)=> {
       this.animeOne = data;
-      console.log(this.animeOne);
     })
 
     });

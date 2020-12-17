@@ -5,21 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { BlogComponent } from './blog/blog.component';
-import { BlogDetailsComponent } from './blog-details/blog-details.component';
 import { AnimeDetailsComponent } from './anime-details/anime-details.component';
 import { AnimeWatchingComponent } from './anime-watching/anime-watching.component';
 import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
 import { LoaderComponent } from './loader/loader.component';
 import { FooterComponent } from './footer/footer.component';
 /* Video */
 import { SharedService } from './shared.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NewanimeComponent } from './admin/newanime/newanime.component';
-import { LoginadminComponent } from './admin/loginadmin/loginadmin.component';
 /* Firebase */
 import { AngularFireModule } from '@angular/fire';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
@@ -33,17 +27,11 @@ import { SearchComponent } from './search/search.component';
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    CategoriesComponent,
-    BlogComponent,
-    BlogDetailsComponent,
     AnimeDetailsComponent,
     AnimeWatchingComponent,
     LoginComponent,
-    SignupComponent,
     LoaderComponent,
     FooterComponent,
-    NewanimeComponent,
-    LoginadminComponent,
     UserDashboardComponent,
     DomseguroPipe,
     AnimeWatchEpComponent,
