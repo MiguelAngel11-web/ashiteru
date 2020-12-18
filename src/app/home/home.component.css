@@ -210,7 +210,8 @@
     border-radius: 5px;
 }
 
-.product__item__pic .ep {
+.product__item__pic .ep,
+.product__item__estreno .ep {
     font-size: 13px;
     color: #ffffff;
     background: #e53637;
@@ -222,7 +223,8 @@
     top: 10px;
 }
 
-.product__item__pic .comment {
+.product__item__pic .comment,
+.product__item__estreno .comment {
     font-size: 13px;
     color: #ffffff;
     background: #3d3d3d;
@@ -234,7 +236,8 @@
     bottom: 10px;
 }
 
-.product__item__pic .view {
+.product__item__pic .view,
+.product__item__estreno .view {
     font-size: 13px;
     color: #ffffff;
     background: #3d3d3d;
@@ -496,4 +499,10 @@
 .img-navbar {
     width: 50%;
     height: auto;
+}
+
+.product__item__estreno {
+    height: auto;
+    position: relative;
+    border-radius: 5px;
 }

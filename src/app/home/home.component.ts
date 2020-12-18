@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   allEmision=[];
   allCommingSon=[];
-  allTopAnimes=[];
+  allLatestAnimes=[];
   allLatestEpisodesAnime
   stringText = "https://animeflv.net/uploads/animes/banners/3355.jpg"
 
@@ -33,8 +33,9 @@ export class HomeComponent implements OnInit {
       this.allCommingSon = data;
     })
 
-    service.topAnime().subscribe(data =>{
-      this.allTopAnimes = data;
+    service.latestAnimeAdde().subscribe(data =>{
+      this.allLatestAnimes = data;
+      console.log(this.allLatestAnimes)
     })
   }
 

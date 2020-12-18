@@ -46,8 +46,8 @@ export class SharedService {
     return this.http.get(this.APIJikanAnime + 'AnimeByState/3/default/1').pipe(map(comingAnime => comingAnime['animes']));
   }
 
-  topAnime(){
-    return this.http.get(this.APIJikanAnime + 'AnimeByState/2/rating/1').pipe(map(comingAnime => comingAnime['animes']));
+  latestAnimeAdde(){
+    return this.http.get(this.APIJikanAnime + 'LatestAnimeAdded').pipe(map(latestAnime => latestAnime['animes']));
   }
 
 
