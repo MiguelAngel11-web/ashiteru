@@ -17,9 +17,10 @@ export class AnimeWatchingComponent implements OnInit {
   eligioServer=false;
 
   constructor(public activatedRoute: ActivatedRoute,public api:SharedService,private sanitizer: DomSanitizer) {
-
+    /* De la lista de ultimos episodios padamos el id para dirijirnos al get que nos regresa los servidores de los videos para poder ver ese episodio */
     this.activatedRoute.params.subscribe( params => {
       this.idverAnime = params['id'];
+      /* De aqui jalamos los servidores y hacemos la peticion get */
       this.api.getLatestEpisodesAnime().subscribe( (data:any) => {
 
         this.returnEpisodes = data;
@@ -38,7 +39,6 @@ export class AnimeWatchingComponent implements OnInit {
   }
 
   selectServer(server:any){
-    console.log(server);
     this.videoUrl = this.transform(server);
     this.eligioServer = true;
   }
