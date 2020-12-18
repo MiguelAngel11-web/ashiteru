@@ -19,6 +19,7 @@ export class AnimeWatchEpComponent implements OnInit {
 
   constructor(public activatedRoute: ActivatedRoute,public api:SharedService,private sanitizer: DomSanitizer) {
     this.api.Carga(["comment"]);
+    /* Sacamos la informacion con el id, y guardamos el titulo y ep cuando vamosa  verlo */
     this.activatedRoute.params.subscribe( params => {
       this.idverAnime = params['id'];
       this.title = params['title'];
@@ -27,19 +28,10 @@ export class AnimeWatchEpComponent implements OnInit {
 
         this.returnEpisodes = data;
         this.selectServer(this.returnEpisodes[0].code);
-
-
       })
 
       });
-
-
-
-
   }
-
-
-
 
   selectServer(server:any){
     this.videoUrl = this.transform(server);
