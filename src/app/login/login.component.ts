@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
       // The signed-in user info.
       var user = result.user;
       this.api.user = user;
+      /* Api creado para guardar los datos en nuestra base de datos */
       this.api.GetUsuariosExternos(user.email).toPromise()
       .then((data)=>{
         if(Object.keys(data).length === 0){
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
             user: user.displayName,
             email: user.email,
           };
+          /* Ya sea por google y faccebook guardamos su email y nombre y sacamos el id para el uso en el user-dashboard */
           this.api.GoogleFacebook(`https://kinder-mountie-14642.herokuapp.com/userexternos`,body)
           .then((data)=>{
             this.api.id = data;
