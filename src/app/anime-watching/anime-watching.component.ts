@@ -17,6 +17,7 @@ export class AnimeWatchingComponent implements OnInit {
   eligioServer=false;
 
   constructor(public activatedRoute: ActivatedRoute,public api:SharedService,private sanitizer: DomSanitizer) {
+    this.api.Carga(["comment"]);
     /* De la lista de ultimos episodios padamos el id para dirijirnos al get que nos regresa los servidores de los videos para poder ver ese episodio */
     this.activatedRoute.params.subscribe( params => {
       this.idverAnime = params['id'];
