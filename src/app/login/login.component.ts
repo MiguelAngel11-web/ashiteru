@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
   public LoginWithGoogle() {
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(result => {
       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-      /* var token = result.credential; */
       // The signed-in user info.
       var user = result.user;
       this.api.user = user;
@@ -68,7 +67,6 @@ export class LoginComponent implements OnInit {
   public LoginWithFacebook() {
     this.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(result => {
       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-      /* var token = result.credential; */
       // The signed-in user info.
       var user = result.user;
       this.api.user = user;
@@ -112,7 +110,6 @@ export class LoginComponent implements OnInit {
   public LoginWithGithub() {
     this.auth.signInWithPopup(new firebase.auth.GithubAuthProvider()).then(result =>{
     // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-    /* var token = result.credential.providerId; */
     // The signed-in user info.
     var user = result.user;
     this.api.user = user;
@@ -121,10 +118,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-/*   public logout() {
-    this.auth.signOut();
-    this.isLogin = false;
-  } */
 
   ngOnInit(): void {
   }
