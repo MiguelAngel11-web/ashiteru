@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SharedService } from '../shared.service';
-import { DomSanitizer } from '@angular/platform-browser';
 
 
 
@@ -15,7 +14,11 @@ export class AnimeDetailsComponent implements OnInit {
   animeOne=[];
   videos = [];
   title:any;
-  constructor(public activatedRoute: ActivatedRoute,public api:SharedService,private domSanitizer:DomSanitizer) {
+  user = [];
+
+  comentarios = [];
+
+  constructor(public activatedRoute: ActivatedRoute,public api:SharedService) {
 
     this.activatedRoute.params.subscribe( params => {
     this.title = params['title'];
@@ -26,9 +29,28 @@ export class AnimeDetailsComponent implements OnInit {
 
     });
 
+    this.api.Carga(["comment"]);
+
+    this.comentarios = [
+      {
+          comentario: "Buena imagen",
+          username: "mike"
+      },
+      {
+          comentario: "No me gusta",
+          username: "otro_usuario"
+      }
+    ]
+
   }
 
+
   ngOnInit(): void {
+
+    if(this.api.isLogin){
+    this.user = this.api.user;
+    }
+
   }
 
 }

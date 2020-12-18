@@ -13,11 +13,9 @@ import { SharedService } from '../shared.service';
 })
 export class LoginComponent implements OnInit {
 
-  public isLogin:boolean=false;
+  public isLogin:boolean;
 
-  constructor(public auth: AngularFireAuth, public router:Router,public api:SharedService) {
-    this.isLogin = false;
-   }
+  constructor(public auth: AngularFireAuth, public router:Router,public api:SharedService) {}
 
   public LoginWithGoogle() {
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(result => {
@@ -34,18 +32,32 @@ export class LoginComponent implements OnInit {
             email: user.email,
           };
           this.api.GoogleFacebook(`https://kinder-mountie-14642.herokuapp.com/userexternos`,body)
-          .then((data)=>{console.log(data); this.api.id=data})
+          .then((data)=>{
+            this.api.id = data;
+            this.api.isLogin = true;
+
+            this.isLogin = true;
+            console.log(this.api.id);
+            this.router.navigate(['/moverUser',this.api.id]);})
           .catch((err)=>{console.log(err)})
 
          /*   */
          this.api.isLogin = true;
       this.isLogin = true;
+      this.router.navigate(['/moverUser',this.api.id]);
             } else{
               this.api
               .GetIDUser(`https://kinder-mountie-14642.herokuapp.com/getID/${user.email}`)
-              .then((data) => (this.api.id = data));
-              this.api.isLogin = true;
-              this.isLogin = true;
+              .then((data) => {
+
+                this.api.id = data;
+                this.api.isLogin = true;
+
+                this.isLogin = true;
+                console.log(this.api.id);
+                this.router.navigate(['/moverUser',this.api.id]);
+              });
+
             }
         });
 
@@ -68,18 +80,30 @@ export class LoginComponent implements OnInit {
             email: user.email,
           };
           this.api.GoogleFacebook(`https://kinder-mountie-14642.herokuapp.com/userexternos`,body)
-          .then((data)=>{console.log(data); this.api.id=data})
+          .then((data)=>{ this.api.id = data;
+            this.api.isLogin = true;
+
+            this.isLogin = true;
+            console.log(this.api.id);
+            this.router.navigate(['/moverUser',this.api.id]);})
           .catch((err)=>{console.log(err)})
 
          /*   */
       this.api.isLogin = true;
       this.isLogin = true;
+      this.router.navigate(['/moverUser',this.api.id]);
             }else{
               this.api
               .GetIDUser(`https://kinder-mountie-14642.herokuapp.com/getID/${user.email}`)
-              .then((data) => (this.api.id = data));
-              this.api.isLogin = true;
-              this.isLogin = true;
+              .then((data) => {
+                this.api.id = data;
+                this.api.isLogin = true;
+
+                this.isLogin = true;
+                console.log(this.api.id);
+                this.router.navigate(['/moverUser',this.api.id]);
+              });
+
             }
         });
 
@@ -91,9 +115,9 @@ export class LoginComponent implements OnInit {
     /* var token = result.credential.providerId; */
     // The signed-in user info.
     var user = result.user;
-    console.log(user);
     this.api.user = user;
     this.isLogin = true;
+    this.router.navigate(['/moverUser',this.api.id]);
     });
   }
 

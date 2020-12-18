@@ -18,6 +18,7 @@ export class AnimeWatchEpComponent implements OnInit {
   episode:any;
 
   constructor(public activatedRoute: ActivatedRoute,public api:SharedService,private sanitizer: DomSanitizer) {
+    this.api.Carga(["comment"]);
     this.activatedRoute.params.subscribe( params => {
       this.idverAnime = params['id'];
       this.title = params['title'];
@@ -32,7 +33,12 @@ export class AnimeWatchEpComponent implements OnInit {
 
       });
 
+
+
+
   }
+
+
 
 
   selectServer(server:any){

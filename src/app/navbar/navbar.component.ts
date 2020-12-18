@@ -12,7 +12,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class NavbarComponent implements OnInit {
 
-  isLogin = false;
+  isLogin;
   user:any;
 
 
@@ -28,7 +28,6 @@ export class NavbarComponent implements OnInit {
     if(this.isLogin){
       this.auth.signOut().then(function() {
     // Sign-out successful.
-        console.log("Data");
   }).catch(function(error) {
     // An error happened.
     console.log(error);
@@ -39,7 +38,10 @@ export class NavbarComponent implements OnInit {
     await this.api.LogOut(`https://kinder-mountie-14642.herokuapp.com/salir`)
     .then((res:any)=>{
       if(res){
-      this.api.user = null;
+        this.isLogin = false;
+        this.api.isLogin = false;
+        this.router.navigate(['/home']);
+        this.api.user = null;
       }
     })
 

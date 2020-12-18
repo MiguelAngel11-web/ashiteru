@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
 
     service.getLatestEpisodesAnime().subscribe(data =>{
       this.allLatestEpisodesAnime = data;
-      console.log(this.allLatestEpisodesAnime)
     })
 
     service.getEmisionAnime().subscribe(data =>
@@ -32,7 +31,6 @@ export class HomeComponent implements OnInit {
 
     service.commingSonAnime().subscribe(data =>{
       this.allCommingSon = data;
-      console.log(this.allCommingSon);
     })
 
     service.topAnime().subscribe(data =>{

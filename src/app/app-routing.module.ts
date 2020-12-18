@@ -8,9 +8,7 @@ import { AnimeWatchingComponent } from './anime-watching/anime-watching.componen
 import { AnimeWatchEpComponent } from './anime-serverEp/anime-watch-ep/anime-watch-ep.component';
 import { SearchComponent } from './search/search.component';
 import {  UserDashboardComponent } from './user-dashboard/user-dashboard.component';
-/* Admin */
-import { LoginadminComponent } from './admin/loginadmin/loginadmin.component';
-import { NewanimeComponent } from './admin/newanime/newanime.component';
+
 import { GuardsGuard } from './protectd/guards.guard';
 
 
@@ -22,12 +20,11 @@ const routes: Routes = [
   {path:'ver/:id',component:AnimeWatchingComponent},
   {path:'verEp/:id/:title/:ep',component:AnimeWatchEpComponent},
   {path:'busqueda/:title',component:SearchComponent},
-  {path:'dashUser/:id/:title',component:UserDashboardComponent},
+  {path:'dashUser/:id/:title',component:UserDashboardComponent,
+  canActivate:[GuardsGuard]},
   {path:'dashUser',component:UserDashboardComponent,
   canActivate:[GuardsGuard]},
-  /* Admin */
-  {path:'admin',component:LoginadminComponent},
-  {path:'adminAnime', component:NewanimeComponent,
+  {path:'moverUser/:user',component:UserDashboardComponent,
   canActivate:[GuardsGuard]},
   {path:'',pathMatch:'full',redirectTo:'home'},
   {path: '**', pathMatch:'full', redirectTo:'home'}

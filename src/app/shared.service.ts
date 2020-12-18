@@ -52,7 +52,6 @@ export class SharedService {
 
 
   getOneAnime(id:any,title:any){
-    console.log(id,title);
     return this.http.get(this.APIJikanAnime + '/GetAnimeInfo/' + id +'/'+title ).pipe(map(data=> data['info']));
   }
 
@@ -78,6 +77,16 @@ export class SharedService {
 
   async LogOut(url:string){
     return await this.http.get(url).toPromise();
+  }
+
+  Carga( archivos:string[] ){
+
+    for(let a of archivos){
+      let script = document.createElement("script");
+      script.src = "../assets/js/" + a + ".js";
+      let body = document.getElementsByTagName("body")[0];
+      body.appendChild( script );
+    }
   }
 
 

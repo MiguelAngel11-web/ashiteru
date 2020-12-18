@@ -14,8 +14,8 @@ export class GuardsGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if(!this.api.isLogin) {
-        alert("Acceso denegado");
-        this.router.navigate(['/home']);
+        alert("Necesitas iniciar sesion! :)");
+        this.router.navigate(['/login']);
       }
       return this.api.isLogin;
     }
